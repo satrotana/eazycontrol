@@ -1,0 +1,11 @@
+*{font-size: 14px;}
+.container-fluid{padding-top:1rem}
+.row2{display:grid;grid-template-columns: repeat(2,1fr);justify-content: space-between;}
+.row2 > .card:last-child,
+.row2 > .alertboxs{margin-left: 5px;overflow:hidden;height: 350px;}
+.cardfixed{margin-bottom: 1rem;}
+.cards-footer{padding-left: 0;padding-right: 0;}
+.flag-icon {width: 30px;height: 20px;overflow: hidden;}
+.flag-icon > img{height: 20px;object-fit: contain;}
+.editActive{color: orange !important;}
+.none-display{display: none;}

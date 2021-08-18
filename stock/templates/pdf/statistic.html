@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistic</title>
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Khmer&family=Moul&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        @page{
+            size: A4 landscape;
+            margin: 1cm 1cm 1cm 1cm;
+        }
+
+        table, td, th {
+            border: .5px solid black;
+        }
+        .fixed{
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 0px;
+        }
+        .fixed-main{
+            text-align: left;
+            padding-top: 5px;
+            padding-left: 5px;
+            padding-bottom: 0px;
+            width: 150px;
+        }
+        .text-inline{
+            white-space: nowrap;
+        }
+        .myfont{
+            font-family: 'Moul', cursive;
+        }
+        body{
+            font-family: 'Khmer', cursive;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="row">
+    <div class="col-4 myfont" style="text-align: center;padding-top: 15px;">
+        <img src="/static/dist/img/tourismlogo.png" width="50px" height="50px" alt=""><br>
+        <span style="font-size: 12px;">ក្រសួងទេសចរណ៍</span><br>
+        <span style="font-size: 12px;">មន្ទីរទេសចរណ៍ ខេត្តកំពង់ចាម</span><br>
+        <span style="font-family: 'Khmer', cursive;font-size: 12px;">លេខ.....................................</span>
+    </div>
+    <div class="col-4 myfont" style="text-align: center;">
+        <span style="font-size: 14px;">ព្រះរាជាណាចក្រកម្ពុជា</span><br>
+        <span style="font-size: 14px;">ជាតិ សាសនា ព្រះមហាក្សត្រ</span>
+    </div>
+    <div class="col-4 myfont" style="text-align: center;padding-top: 10px;">
+        <img src="/static/dist/img/kingdom.PNG" width="60px" height="60px" alt=""><br>
+    </div>
+    <div class="col-12 myfont" style="text-align: center;margin-bottom: .5rem;">របាយការណ៍<br>ស្ថិតិទេសចរបានមកទស្សនាខេត្តកំពង់ចាម តាមបណ្តាខែក្នុងឆ្នាំ {{year}}
+    </div>
+</div>
+    
+
+    <table style="width: 100%;border-collapse: collapse;">
+        <thead>
+            {% for i in title %}
+            <tr style="font-weight:bold;">
+                <td class="fixed-main text-inline">{{ i.discription }}</td>
+                <td class="fixed">{{ i.january }}</td>
+                <td class="fixed">{{ i.february }}</td>
+                <td class="fixed">{{ i.march }}</td>
+                <td class="fixed">{{ i.april }}</td>
+                <td class="fixed">{{ i.may }}</td>
+                <td class="fixed">{{ i.june }}</td>
+                <td class="fixed">{{ i.july }}</td>
+                <td class="fixed">{{ i.august }}</td>
+                <td class="fixed">{{ i.september }}</td>
+                <td class="fixed">{{ i.october }}</td>
+                <td class="fixed">{{ i.november }}</td>
+                <td class="fixed">{{ i.december }}</td>
+                <td class="fixed">{{ i.totals}}</td>
+            </tr>
+            {% endfor %}
+        </thead>
+        <tbody>
+          {% for i in result %}
+            <tr>
+                <td class="fixed-main text-inline">{{ i.discription }}</td>
+                <td class="fixed">{{ i.january }}</td>
+                <td class="fixed">{{ i.february }}</td>
+                <td class="fixed">{{ i.march }}</td>
+                <td class="fixed">{{ i.april }}</td>
+                <td class="fixed">{{ i.may }}</td>
+                <td class="fixed">{{ i.june }}</td>
+                <td class="fixed">{{ i.july }}</td>
+                <td class="fixed">{{ i.august }}</td>
+                <td class="fixed">{{ i.september }}</td>
+                <td class="fixed">{{ i.october }}</td>
+                <td class="fixed">{{ i.november }}</td>
+                <td class="fixed">{{ i.december }}</td>
+                <td class="fixed">{{ i.totals}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+        window.print();
+    });
+</script>
+</body>
+</html>
