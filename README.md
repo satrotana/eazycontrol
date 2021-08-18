@@ -1,0 +1,2 @@
+# eazycontrol
+Stock Management
