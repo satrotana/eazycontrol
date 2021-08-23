@@ -1,11 +1,15 @@
 from enum import auto
 from inspect import findsource
+from django.conf.urls import url
 from django.http.response import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password
+import requests
+
+EZapi = 'http://127.0.0.1:8000/ezapi/'
 
 @login_required(login_url='login')
 def home(request):
@@ -19,7 +23,7 @@ def loginUser(request):
         findUser = User.objects.filter(username = Gusername)
 
         if findUser:
-            request.session.set_expiry(10)
+            request.session.set_expiry(300)
             user = authenticate(request, username = Gusername, password = Gpassword)
             if user is not None:
                 login(request, user)
@@ -68,17 +72,12 @@ def register(request):
         return render(request, 'auth/register.html')
 
 def membership(request):
-    return render(request, "membership/memberlist.html")
-
-
-# def registerNew(request):
-#     if request.POST.get('action') == 'Insert':
-#         Gfirstname = request.POST.get('pfName')
-#         Glastname = request.POST.get('plName')
-#         Gemail = request.POST.get('email')
-#         Gpass1 = request.POST.get('ppass1')
-#         Gpass2 = request.POST.get('ppass2')
-#         if Gpass1 ==  Gpass2:
-#             return HttpResponseRedirect('login')
-#         else:
-#             return JsonResponse({'message':'Your password not match!'})
+    params = dict(
+        origin='Chicago,IL',
+        destination='Los+Angeles,CA',
+        waypoints='Joplin,MO|Oklahoma+City,OK',
+        sensor='false'
+    )
+    resp = requests.get(url=EZapi+"membershiplistview", params=params)
+    data = resp.json()
+    return render(request, "membership/memberlist.html",{'data':data})

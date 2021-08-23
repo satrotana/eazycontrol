@@ -16,3 +16,10 @@ def membershipListView(request):
     #         return Response(serializer.data)
     #     else:
     #         return Response(serializer.errors)
+
+@api_view(['GET'])
+def membershipDetailView(request,pk):
+    if request.method == 'GET':
+        userList = User.objects.filter(pk=pk)
+        serializer = UserSerializer(userList, many=True)
+        return Response(serializer.data)
