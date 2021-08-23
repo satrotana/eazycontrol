@@ -19,6 +19,7 @@ def loginUser(request):
         findUser = User.objects.filter(username = Gusername)
 
         if findUser:
+            request.session.set_expiry(10)
             user = authenticate(request, username = Gusername, password = Gpassword)
             if user is not None:
                 login(request, user)
