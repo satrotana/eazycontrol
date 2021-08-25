@@ -13,7 +13,7 @@
       <form action="login" method="POST">
         {% csrf_token %}
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="User Name" id="userName" name="userName">
+          <input type="text" class="form-control" placeholder="User Name" id="userName" name="userName" value="{{ field_username }}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" id="password" name="password">
+          <input type="password" class="form-control" placeholder="Password" id="password" name="password" value="{{ field_password }}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

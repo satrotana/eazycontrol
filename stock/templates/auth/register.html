@@ -14,7 +14,7 @@
       <form action="register" method="POST">
         {% csrf_token %}
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="User Name" id="userName" name="userName">
+          <input type="text" class="form-control" placeholder="User Name" id="userName" name="userName" value="{{ form_data.field_username }}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="First Name" id="firstName" name="firstName">
+          <input type="text" class="form-control" placeholder="First Name" id="firstName" name="firstName" value="{{ form_data.field_firstname }}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Last Name" id="lastName" name="lastName">
+          <input type="text" class="form-control" placeholder="Last Name" id="lastName" name="lastName" value="{{ form_data.field_lastname }}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email" id="email" name="email">
+          <input type="email" class="form-control" placeholder="Email" id="email" name="email" value="{{ form_data.field_Gemail }}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
