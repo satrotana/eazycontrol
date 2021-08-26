@@ -13,8 +13,8 @@ EZapi = 'http://127.0.0.1:8000/ezapi/'
 
 @login_required(login_url='login')
 def home(request):
-    print(my_fun())
-    return render(request, 'home.html')
+    userInfo = (my_fun(str(request.user.id)))
+    return render(request, 'home.html',{'userInfo':userInfo})
 
 def loginUser(request):
     message =''

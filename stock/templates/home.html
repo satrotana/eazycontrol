@@ -1,5 +1,10 @@
 {% extends 'main/base.html' %}
 {% block content %}
 {% load static %}
-
+<div>
+    {% for i in userInfo %}
+    {{i.id}}
+    {{i.email}}
+    {% endfor %}
+</div>
 {% endblock %}
