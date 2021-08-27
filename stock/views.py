@@ -1,15 +1,12 @@
-from enum import auto
-from inspect import findsource
-from django.conf.urls import url
-from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password
 import requests
+from django.conf import settings
 
-EZapi = 'http://127.0.0.1:8000/ezapi/'
+EZapi = settings.MEDIA_URL_API
 
 @login_required(login_url='login')
 def home(request):

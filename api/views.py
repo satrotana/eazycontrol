@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .serializers import *
 from rest_framework import status
 
+
 @csrf_exempt
 def membershipListView(request,cm,fid):
     cursor = connection.cursor()

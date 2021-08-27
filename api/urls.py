@@ -4,5 +4,4 @@ from .views import *
 
 urlpatterns = [
     path('membershiplistview/<str:cm>;<str:fid>', membershipListView),
-    # path('membershiplistview/<str:fid>', membershipDetailView),
 ]
