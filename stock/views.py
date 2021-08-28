@@ -4,13 +4,12 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password
 import requests
-from django.conf import settings
-
-EZapi = settings.MEDIA_URL_API
+from stock.functions import *
 
 @login_required(login_url='login')
 def home(request):
-    userInfo = (my_fun(str(request.user.id)))
+    userInfo = MemberControl('S',str(request.user.id))
+    print(userInfo)
     return render(request, 'home.html',{'userInfo':userInfo})
 
 def loginUser(request):
@@ -29,7 +28,7 @@ def loginUser(request):
             message = 'Your username is empty!'
         elif Gusername is not None and Gpassword is not None:
             if findUser:
-                request.session.set_expiry(300)
+                request.session.set_expiry(1500)
                 user = authenticate(request, username = Gusername, password = Gpassword)
                 if user is not None:
                     login(request, user)
@@ -110,6 +109,3 @@ def membership(request):
     resp = requests.get(url=EZapi+"membershiplistview/S;ALL").json()
     return render(request, "membership/memberlist.html",{'data':resp})
 
-def my_fun(id):
-    resp = requests.get(url=EZapi+"membershiplistview/S;"+id+"").json()
-    return resp
