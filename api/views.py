@@ -5,7 +5,7 @@ from .serializers import *
 from rest_framework import status
 from django.conf import settings
 
-EZapi = settings.MEDIA_URL
+EZapiIm = settings.MEDIA_URL
 
 @csrf_exempt
 def membershipListView(request,cm,fid):
@@ -28,7 +28,7 @@ def membershipListView(request,cm,fid):
                 'dateBirth':i[6],
                 'jobs':i[7],
                 'organization':i[8],
-                'userImage':EZapi + i[9],
+                'userImage':EZapiIm + i[9],
                 'proName':i[10],
                 'villageName':i[11],
                 'districtName':i[12],

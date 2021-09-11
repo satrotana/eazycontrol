@@ -3,13 +3,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password
-import requests
 from stock.functions import *
 
 @login_required(login_url='login')
 def home(request):
     userInfo = MemberControl('S',str(request.user.id))
-    print(userInfo)
     return render(request, 'home.html',{'userInfo':userInfo})
 
 def loginUser(request):
