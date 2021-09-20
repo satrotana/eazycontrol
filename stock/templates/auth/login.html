@@ -1,51 +1,124 @@
 {% extends 'main/baseLogin.html' %}
 {% block content %}
 {% load static %}
-<div class="register-box">
-  <div class="register-logo">
-    <img src="{% static 'dist/img/mainlogo.png' %}" alt="" width="50px">
-    <a href="#"><b>EZ</b>Control</a>
-  </div>
-
-  <div class="card">
-    <div class="card-body register-card-body">
-      <p class="text-red text-center">{{ message }}</p>
-      <form action="login" method="POST">
-        {% csrf_token %}
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="User Name" id="userName" name="userName" value="{{ field_username }}">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" id="password" name="password" value="{{ field_password }}">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <!--<input type="checkbox" id="agreeTerms" id="terms" name="terms" value="agree">
-               <label for="agreeTerms">
-               I agree to the <a href="#">terms</a>
-              </label> -->
-            </div>
-          </div>
-          <div class="col-4">
-            <button type="submit" id="login" name="login" class="btn btn-primary btn-block">Sign In</button>
-          </div>
-        </div>
-      </form>
-      <a href="#" class="text-center">I forgot my password</a><br>
-      <a href="{% url 'register' %}" class="text-center">Register a new membership</a>
+<style>
+    .main-card{
+        width: 350px;
+        height: 450px;
+        margin: auto;
+        margin-top: 15%;
+        background-color: rgb(0, 149, 175);
+        box-shadow: 5px 5px 10px grey;
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+    }
+    .main-card > .login-logo{
+        background-color: white;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-bottom-right-radius: 80px;
+        border-bottom-left-radius: 80px;
+    }
+    .main-card > .logInput{
+        margin: auto;
+        text-align: center;
+        display: grid ;
+        grid-row: 1;
+        
+    }
+    .login-top-input{
+        height: 50px;
+        width: 60%;
+        border-left: 1px solid rgba(131, 131, 131, 0.411);
+        border-right: 1px solid rgba(131, 131, 131, 0.411);
+        border-top: 1px solid rgba(131, 131, 131, 0.411);
+        border-bottom: none;
+        outline: none;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+        padding-left:20px;
+    }
+    .login-button-input{
+        height: 50px;
+        width: 60%;
+        border-left: 1px solid rgba(131, 131, 131, 0.411);
+        border-right: 1px solid rgba(131, 131, 131, 0.411);
+        border-bottom: 1px solid rgba(131, 131, 131, 0.411);
+        border-top: none;
+        outline: none;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        padding-left:20px;
+    }
+    .login-submit{
+        height: 50px;
+        width: 60%;
+        border: 1px solid rgba(131, 131, 131, 0.411);
+        background-color: rgba(0, 0, 0, 0.39);
+        color: white;
+        border-top: none;
+        outline: none;
+        border-radius: 15px;
+        margin-top: 15px;
+        transform: 1s;
+    }
+    .login-submit:hover{
+        height: 50px;
+        width: 60%;
+        border: 1px solid rgba(131, 131, 131, 0.411);
+        background-color: rgba(0, 0, 0, 0.692);
+        color: white;
+        border-top: none;
+        outline: none;
+        border-radius: 15px;
+        margin-top: 15px;
+        transform: 1s;
+    }
+    .login-label{
+        font-size: 25px;
+        color: white;
+    }
+    .login-register{
+        text-align: center;
+        margin-top: 25px;
+        background-color: white;
+        height: 100%;
+        border-top-right-radius: 55px;
+        border-top-left-radius: 55px;
+        padding-top: 30px;
+        font-size: 18px;
+    }
+    .main-card > .logInput > .alert-dismissible{
+        background-color: rgba(255, 0, 0, 0.815);
+        color: white;
+    }
+</style>
+<div class="main-card">
+    <div class="login-logo">
+        <img src="{% static 'dist/img/umelogo.png' %}" alt="" width="80">
+        <img src="{% static 'dist/img/mainlogo.png' %}" alt="" width="100">
     </div>
-  </div>
+    <div class="logInput">
+        {% if message %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{ message }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+        <label class="login-label" for="userName">Log In</label>
+        <form action="login" method="POST">
+            {% csrf_token %}
+            <input type="text" class="login-top-input" placeholder="User Name" id="userName" name="userName" value="{{ field_username }}">
+            <input type="password" class="login-button-input" placeholder="Password" id="password" name="password" value="{{ field_password }}">
+            <input type="submit" class="login-submit" value="Login">
+        </form>
+    </div>
+    <div class="login-register">
+        <a href="{% url 'register' %}">Register</a>
+    </div>
 </div>
 {% endblock %}
 {% block javascript %}

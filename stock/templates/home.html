@@ -2,14 +2,15 @@
 {% block content %}
 {% load static %}
 <div>
-  <div class="bookWrap">
+  {% comment %} <div class="bookWrap">
     <div class="book">
       {% for i in userInfo %}
-          <img src="http://192.168.1.4:7000/static/dist/img/harry-potter.jpg" class="cover" alt="User Image">
-          {% endfor %}
-      <div class="spine"></div>
+        <img src="http://192.168.1.25:8000/static/dist/img/harry-potter.jpg" class="cover" alt="User Image">
+      {% endfor %}
+      <div class="spine">
+      </div>
     </div>
-  </div>
+  </div> {% endcomment %}
 </div>
 {% endblock %}
 {% block js %}

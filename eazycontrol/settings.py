@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -16,7 +15,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
 'localhost',
-  '127.0.0.1'
+  '192.168.1.25'
 ]
 
 
@@ -118,8 +117,8 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = 'http://127.0.0.1:8000/static/dist/img/'
-MEDIA_URL_API = 'http://127.0.0.1:8000/ezapi/'
+MEDIA_URL = 'http://192.168.1.25:8000/static/dist/img/'
+MEDIA_URL_API = 'http://192.168.1.25:8000/ezapi/'
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR, 'static')
 ]

@@ -7,5 +7,6 @@ urlpatterns = [
     path('logout', logoutUser,name='logout'),
     path('register', register,name='register'),
     path('memberlist', membership,name='memberlist'),
-    # path('registerHttp', registerNew,name='registerHttp'),
+    path('changepass', changepassword,name='changepass'),
+    
 ]

@@ -103,7 +103,12 @@ def register(request):
     else :
         return render(request, 'auth/register.html')
 
+def changepassword(request):
+    return render(request,'auth/changepass.html')
+
+@login_required(login_url='login')
 def membership(request):
-    resp = requests.get(url=EZapi+"membershiplistview/S;ALL").json()
-    return render(request, "membership/memberlist.html",{'data':resp})
+    resp = MemberControl('S','ALL')
+    userInfo = MemberControl('S',str(request.user.id))
+    return render(request, "membership/memberlist.html",{'data':resp,'userInfo':userInfo})
 
