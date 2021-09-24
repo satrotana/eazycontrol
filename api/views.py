@@ -9,11 +9,11 @@ EZapiIm = settings.MEDIA_URL
 URL = settings.URL_LINK
 
 @csrf_exempt
-def membershipListView(request,cm,fid):
+def membershipListView(request,cm,fid,ut):
     cursor = connection.cursor()
     userList=''
     try:
-        userList = cursor.execute("EXEC [dbo].[UserInfo] @cm='"+cm+"',@fid='"+fid+"'")
+        userList = cursor.execute("EXEC [dbo].[UserInfo] @cm='"+cm+"',@fid='"+fid+"',@user_type='"+ut+"'")
     except userList.DoesNotExist: 
         return HttpResponse(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'GET':

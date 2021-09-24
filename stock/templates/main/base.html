@@ -42,10 +42,6 @@
           background-color: rgb(0, 149, 175);
           border-radius: 10px;
         }
-        .main-header{
-          margin-bottom: 15px;
-          /* background-color: rgb(0, 149, 175); */
-        }
       </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -69,9 +65,9 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a href="{% url 'logout' %}">Logout</a>
-      </li>
+      {% comment %} <li class="nav-item dropdown">
+        <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </li> {% endcomment %}
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
 
@@ -282,6 +278,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{% url 'logout' %}" class="nav-link">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>
+                Log-Out
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -290,7 +294,7 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="padding-top: 20px;">
   {% block content %}
   {% endblock %}
   </div>
@@ -351,6 +355,7 @@
 <script src="{% static 'dist/js/demo.js' %}"></script>
 <script src="{% static 'dist/myjs.js' %}" ></script>
 <script src="{% static 'plugins/bs-custom-file-input/bs-custom-file-input.min.js' %}"></script>
+<script src="{% static 'plugins/inputmask/min/jquery.inputmask.bundle.min.js' %}"></script>
 {% block javascript %}
 {% endblock %}
 </body>

@@ -7,7 +7,7 @@ from stock.functions import *
 
 @login_required(login_url='login')
 def home(request):
-    userInfo = MemberControl('S',str(request.user.id))
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
     return render(request, 'home.html',{'userInfo':userInfo})
 
 def loginUser(request):
@@ -108,25 +108,29 @@ def changepassword(request):
 
 @login_required(login_url='login')
 def membership(request):
-    resp = MemberControl('S','ALL')
-    userInfo = MemberControl('S',str(request.user.id))
+    resp = MemberControl('S','ALL','0')
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
     return render(request, "membership/memberlist.html",{'data':resp,'userInfo':userInfo})
+
+def memberinput(request):
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
+    return render(request, "membership/inputform.html",{'userInfo':userInfo})
 
 @login_required(login_url='login')
 def memberprofile(request,id):
-    userInfo = MemberControl('S',str(request.user.id))
-    GetuserInfo = MemberControl('S',str(id))
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
+    GetuserInfo = MemberControl('S',str(id),'ALL')
     print(GetuserInfo)
     return render(request,'membership/profiles.html',{'userInfo':userInfo,'GetuserInfo':GetuserInfo})
 
 def stafflist(request):
-    resp = MemberControl('S','ALL')
-    userInfo = MemberControl('S',str(request.user.id))
+    resp = MemberControl('S','ALL','1')
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
     return render(request, "staffs/stafflist.html",{'data':resp,'userInfo':userInfo})
 
 def grouppermission(request):
-    resp = MemberControl('S','ALL')
-    userInfo = MemberControl('S',str(request.user.id))
+    resp = MemberControl('S','ALL','1')
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
     return render(request, "staffs/grouppermission.html",{'data':resp,'userInfo':userInfo})
 
 
