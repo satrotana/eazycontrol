@@ -119,6 +119,7 @@ USE_TZ = False
 STATIC_URL = '/static/'
 MEDIA_URL = 'http://192.168.1.25:8000/static/dist/img/'
 MEDIA_URL_API = 'http://192.168.1.25:8000/ezapi/'
+URL_LINK = 'http://192.168.1.25:8000/'
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR, 'static')
 ]

@@ -26,7 +26,7 @@ def loginUser(request):
             message = 'Your username is empty!'
         elif Gusername is not None and Gpassword is not None:
             if findUser:
-                request.session.set_expiry(1500)
+                request.session.set_expiry(3600)
                 user = authenticate(request, username = Gusername, password = Gpassword)
                 if user is not None:
                     login(request, user)
@@ -111,4 +111,22 @@ def membership(request):
     resp = MemberControl('S','ALL')
     userInfo = MemberControl('S',str(request.user.id))
     return render(request, "membership/memberlist.html",{'data':resp,'userInfo':userInfo})
+
+@login_required(login_url='login')
+def memberprofile(request,id):
+    userInfo = MemberControl('S',str(request.user.id))
+    GetuserInfo = MemberControl('S',str(id))
+    print(GetuserInfo)
+    return render(request,'membership/profiles.html',{'userInfo':userInfo,'GetuserInfo':GetuserInfo})
+
+def stafflist(request):
+    resp = MemberControl('S','ALL')
+    userInfo = MemberControl('S',str(request.user.id))
+    return render(request, "staffs/stafflist.html",{'data':resp,'userInfo':userInfo})
+
+def grouppermission(request):
+    resp = MemberControl('S','ALL')
+    userInfo = MemberControl('S',str(request.user.id))
+    return render(request, "staffs/grouppermission.html",{'data':resp,'userInfo':userInfo})
+
 

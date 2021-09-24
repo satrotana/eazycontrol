@@ -6,6 +6,7 @@ from rest_framework import status
 from django.conf import settings
 
 EZapiIm = settings.MEDIA_URL
+URL = settings.URL_LINK
 
 @csrf_exempt
 def membershipListView(request,cm,fid):
@@ -38,5 +39,8 @@ def membershipListView(request,cm,fid):
                 'phone':i[16],
                 'date_joined':i[17],
                 'last_login':i[18],
+                'detail_user':URL + 'profile/' + str(i[0]),
+                'is_staff':i[19],
+                'is_active':i[20],
             })
         return JsonResponse(data, safe=False)

@@ -40,6 +40,7 @@
           <th>No</th>
           <th>Image</th>
           <th>Full_Name</th>
+          <th>Group</th>
           <th>Email</th>
           <th>Gender</th>
           <th>Phone</th>
@@ -52,6 +53,7 @@
             <td class="font20">{{ forloop.counter }}</td>
             <td><img class="list-item-zoom" src="{{i.userImage}}" width="45px" /></td>
             <td class="font20">{{ i.first_name }} {{ i.last_name }}</td>
+            <td class="font20">{{ i.proName }}</td>
             <td class="font20">{{ i.email }}</td>
             <td class="font20">{{ i.gender }}</td>
             <td class="font20">{{ i.phone }}</td>

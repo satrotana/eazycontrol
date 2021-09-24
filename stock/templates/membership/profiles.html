@@ -1,0 +1,115 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            {% for i in GetuserInfo %}
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle" src="{{i.userImage}}" alt="User profile picture">
+                </div>
+
+                <h3 class="profile-username text-center">{{ i.first_name }} {{ i.last_name }}</h3>
+                <p class="text-muted text-center">{{ i.proName }}</p>
+
+                <p class="text-muted text-center">{{ i.job }}</p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>Borrowed Books</b> <a class="float-right">50</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Online Reading</b> <a class="float-right">543</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Visited Library</b> <a class="float-right">150</a>
+                  </li>
+                </ul>
+
+                <a href="#" class="btn btn-primary btn-block"><b>Details</b></a>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- About Me Box -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">About</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <strong><i class="fas fa-building"></i> Organization</strong>
+                
+                <p class="text-muted">
+                  {{ i.jobs }} / {{ i.organization }}
+                </p>
+                
+                <hr>
+
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+
+                <p class="text-muted">{{ i.villageName }}, {{  i.districtName }}, {{ i.communceName }}, {{ i.provinceName }}</p>
+
+                <hr>
+
+                <strong><i class="fas fa-history mr-1"></i> System <small>(last login)</small></strong>
+
+                <p class="text-muted">{{ i.last_login }}</p>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="container-fluid">
+                <div class="card card-primary card-outline">
+                  <div class="card-header">
+                    <h3 class="card-title">User Info</h3>
+                  </div> <!-- /.card-body -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-2">User ID</div><div class="col-md-10"><b>: {{ i.id }}</b></div>
+                      <div class="col-md-2">Sign-on</div><div class="col-md-10"><b>: {{ i.username }}</b></div>
+                      <div class="col-md-2">User Name</div><div class="col-md-10"><b>: {{ i.first_name }} {{ i.last_name }}</b></div>
+                      <div class="col-md-2">Gender</div><div class="col-md-10"><b>: {{ i.gender }}</b></div>
+                      <div class="col-md-2">Date Of Birth</div><div class="col-md-10"><b>: {{ i.dateBirth }}</b></div>
+                      <div class="col-md-2">Job</div><div class="col-md-10"><b>: {{ i.jobs }}</b></div>
+                      <div class="col-md-2">Organization</div><div class="col-md-10"><b>: {{ i.organization }}</b></div>
+                    </div>
+                  </div>
+                </div> 
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">Contact & Address</h3>
+                    </div> <!-- /.card-body -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12"><strong>CONTACT</strong></div>
+                            <div class="col-md-2">Phone</div><div class="col-md-10"><b>: {{ i.phone }}</b></div>
+                            <div class="col-md-2">Email</div><div class="col-md-10"><b>: {{ i.email }}</b></div>
+
+                            <div class="col-md-12"><strong>ADDDRESS</strong></div>
+                            <div class="col-md-2">Village</div><div class="col-md-10"><b>: {{ i.villageName }}</b></div>
+                            <div class="col-md-2">District</div><div class="col-md-10"><b>: {{ i.districtName }}</b></div>
+                            <div class="col-md-2">Communce</div><div class="col-md-10"><b>: {{ i.communceName }}</b></div>
+                            <div class="col-md-2">Province</div><div class="col-md-10"><b>: {{ i.provinceName }}</b></div>
+                        </div>
+                    </div><!-- /.card-body -->
+                </div>
+            </div>
+          </div>
+          {% endfor %}
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+
+{% endblock %}
