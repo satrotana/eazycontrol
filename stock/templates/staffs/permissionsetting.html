@@ -1,0 +1,310 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+<style>
+  .table-member{
+    box-shadow: 1px 2px 10px rgba(128, 128, 128, 0.3);
+    background-color: white;
+    padding: 15px;
+    margin-top:25px;
+  }
+  .table{
+    position: relative;
+    width: 100%;
+    font-size: 25px;
+  }
+  .Onerow{
+    grid-row: 1;
+    text-align: center;
+  }
+  .Onerow > a > i{
+    font-size: 20px;
+    padding-right: 10px;
+  }
+  .font20{
+    font-size: 20px;
+  }
+  .header-blure{
+    background-color: rgb(0, 149, 175);
+  }
+  .card-table{
+    overflow: hidden;
+  }
+  .card-body-table{
+    position: relative;
+    overflow-x: scroll;
+
+  }
+  .select-table-row{
+    overflow-x: scroll;
+    overflow-y: scroll;
+  }
+</style>
+<section class="content">
+    <div class=" col-md-6">
+      <div class="card card-info">
+        <div class="card-header">
+          <h3 class="card-title">Profile</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form class="form-horizontal">
+          <div class="card-body">
+            <input type="hidden" class="form-control" id="proid">
+            <div class="form-group row">
+              <label for="village" class="col-form-label">Group Permission</label>
+                  <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" aria-hidden="true" id="village">
+                    <option selected="selected" value="3">Administrater</option>
+                    <option value="29">Accounting</option>
+                    <option value="30">Student</option>
+                    <option value="31">Management</option>
+                    <option value="32">Saller</option>
+                    <option value="33">Service</option>
+                    <option value="34">Marketing</option>
+                  </select>
+            </div>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            <button type="submit" class="btn btn-info">Save</button>
+            <a href="{% url 'grouppermission' %}"><button type="button" class="btn btn-success float-right">Add Profile</button></a>
+          </div>
+          <!-- /.card-footer -->
+        </form>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="card card-table">
+        <div class="card-header header-blure">
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body card-body-table">
+          <table id="table2" class="table table-bordered table-striped select-table-row">
+            <thead>
+            <tr>
+              <th>No</th>
+              <th hidden>Profile ID</th>
+              <th>Menu Name</th>
+              <th>Views</th>
+              <th>Insert</th>
+              <th>Update</th>
+              <th>Delete</th>
+              <th>Print</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td hidden>1001</td>
+                <td>List Members</td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="view1001">
+                      <label for="view1001"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="insert1001">
+                      <label for="insert1001"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="update1001">
+                      <label for="update1001"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="delete1001">
+                      <label for="delete1001"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="print1001">
+                      <label for="print1001"></label>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>02</td>
+                <td hidden>1002</td>
+                <td>List Staffs</td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="view1002">
+                      <label for="view1002"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="insert1002">
+                      <label for="insert1002"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="update1002">
+                      <label for="update1002"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="delete1002">
+                      <label for="delete1002"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="print1002">
+                      <label for="print1002"></label>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>03</td>
+                <td hidden>1003</td>
+                <td>Staff Groups</td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="view1003">
+                      <label for="view1003"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="insert1003">
+                      <label for="insert1003"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="update1003">
+                      <label for="update1003"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="delete1003">
+                      <label for="delete1003"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="print1003">
+                      <label for="print1003"></label>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>04</td>
+                <td hidden>1004</td>
+                <td>Groups Permission</td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="view1004">
+                      <label for="view1004"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="insert1004">
+                      <label for="insert1004"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="update1004">
+                      <label for="update1004"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="delete1004">
+                      <label for="delete1004"></label>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group clearfix">
+                    <div class="icheck-success">
+                      <input type="checkbox" checked id="print1004">
+                      <label for="print1004"></label>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}
+{% block javascript %}
+<script>
+$(function () {
+  $("#table2").DataTable({
+    "responsive": false,
+    "autoWidth": false,
+    "paging": false,
+    "searching": true,
+    "ordering": true,
+  });
+});
+// $(document).ready(function(){
+//     // code to read selected table row cell data (values).
+//     $(".select-table-row").on('click','#btnUpdate',function(){
+//       var currentRow=$(this).closest("tr");
+//       var col1=currentRow.find("td:eq(1)").text();
+//       var col2=currentRow.find("td:eq(2)").text();
+//       var col3=currentRow.find("td:eq(3)").text();
+//       var col4=currentRow.find("td:eq(4)").text();
+//       var setid = document.getElementById("proid").value = (col1);
+//       var setproname = document.getElementById("proname").value = (col2);
+//       var setshortname = document.getElementById("proshort").value = (col3);
+//     });
+// });
+
+
+</script>
+{% endblock %}

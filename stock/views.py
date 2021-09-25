@@ -123,14 +123,22 @@ def memberprofile(request,id):
     print(GetuserInfo)
     return render(request,'membership/profiles.html',{'userInfo':userInfo,'GetuserInfo':GetuserInfo})
 
+@login_required(login_url='login')
 def stafflist(request):
     resp = MemberControl('S','ALL','1')
     userInfo = MemberControl('S',str(request.user.id),'ALL')
     return render(request, "staffs/stafflist.html",{'data':resp,'userInfo':userInfo})
 
+@login_required(login_url='login')
 def grouppermission(request):
-    resp = MemberControl('S','ALL','1')
     userInfo = MemberControl('S',str(request.user.id),'ALL')
-    return render(request, "staffs/grouppermission.html",{'data':resp,'userInfo':userInfo})
+    return render(request, "staffs/grouppermission.html",{'userInfo':userInfo})
+
+@login_required(login_url='login')
+def permissionsetting(request):
+    resp = MemberControl('S','ALL','ALL')
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
+    return render(request, "staffs/permissionsetting.html",{'data':resp,'userInfo':userInfo})
+
 
 

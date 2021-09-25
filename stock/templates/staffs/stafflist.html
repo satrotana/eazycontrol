@@ -59,7 +59,7 @@
             <td class="font20">{{ i.phone }}</td>
             <td class="Onerow">
               <a href="{{ i.detail_user }}"><i class="fas fa-eye"></i></a>
-              <a href=""><i class="fas fa-edit"></i></a>
+              <a href="{% url 'memberinput' %}"><i class="fas fa-edit"></i></a>
               <a href=""><i class="fas fa-trash-alt"></i></a>
             </td>
           </tr>
@@ -78,7 +78,7 @@
   $(function () {
     $("#table2").DataTable({
       "responsive": true,
-      "autoWidth": true,
+      "autoWidth": false,
       "paging": false,
       "searching": true,
       "ordering": true,

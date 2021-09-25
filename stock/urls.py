@@ -12,4 +12,5 @@ urlpatterns = [
     path('changepass', changepassword,name='changepass'),
     path('profile/<str:id>', memberprofile, name = 'profile'),
     path('grouppermission', grouppermission,name='grouppermission'),
+    path('permissionsetting', permissionsetting,name='permissionsetting'),
 ]
