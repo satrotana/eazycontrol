@@ -1,0 +1,139 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+<style>
+  .table-member{
+    box-shadow: 1px 2px 10px rgba(128, 128, 128, 0.3);
+    background-color: white;
+    padding: 15px;
+    margin-top:25px;
+  }
+  .table{
+    position: relative;
+    width: 100%;
+    font-size: 25px;
+  }
+  .Onerow{
+    grid-row: 1;
+    text-align: center;
+  }
+  .Onerow > a > i{
+    font-size: 20px;
+    padding-right: 10px;
+  }
+  .font20{
+    font-size: 20px;
+  }
+  .header-blure{
+    background-color: rgb(0, 149, 175);
+  }
+  .padding-button > a{
+    margin-right: 10px;
+  }
+</style>
+<section class="content">
+  <div class="card-body">
+    <div class="row padding-button">
+      <a class="btn btn-success" href="{% url 'inputbooks' %}">Add Books</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header header-blure">
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="table2" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>No</th>
+          <th>Image</th>
+          <th>Title</th>
+          <th>ID</th>
+          <th>Category</th>
+          <th>Quentity</th>
+          <th>ISBN</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+          <!-- {% for i in data %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><img src="{{i.userImage}}" width="45px" /></td>
+            <td>{{ i.first_name }} {{ i.last_name }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.gender }}</td>
+            <td>{{ i.phone }}</td>
+            <td class="Onerow">
+              <a href="{{ i.detail_user }}"><i class="fas fa-eye"></i></a>
+              <a href="{% url 'memberinput' %}"><i class="fas fa-edit"></i></a>
+              <a href=""><i class="fas fa-trash-alt"></i></a>
+            </td>
+          </tr>
+          {% endfor %} -->
+          <tr>
+            <td>01</td>
+            <td><img src="http://192.168.1.25:8000/static/dist/img/harry-potter.jpg" width="45px" /></td>
+            <td>Harry Potter</td>
+            <td>DB001</td>
+            <td>Story</td>
+            <td>12</td>
+            <td>NB126354#HGN122</td>
+            <td class="Onerow">
+              <a href=""><i class="fas fa-eye"></i></a>
+              <a href="http://192.168.1.25:8000/updatebooks/1"><i class="fas fa-edit"></i></a>
+              <a href=""><i class="fas fa-trash-alt"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td><img src="http://192.168.1.25:8000/static/dist/img/jataka-tales.jpg" width="45px" /></td>
+            <td>Jataka Tales</td>
+            <td>DB002</td>
+            <td>Story</td>
+            <td>12</td>
+            <td>NB126354#HGN122</td>
+            <td class="Onerow">
+              <a href=""><i class="fas fa-eye"></i></a>
+              <a href="http://192.168.1.25:8000/updatebooks/1"><i class="fas fa-edit"></i></a>
+              <a href=""><i class="fas fa-trash-alt"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td><img src="http://192.168.1.25:8000/static/dist/img/the-leadership-challenge.jpg" width="45px" /></td>
+            <td>Jataka Tales</td>
+            <td>DB003</td>
+            <td>Management</td>
+            <td>12</td>
+            <td>NB126354#HGN122</td>
+            <td class="Onerow">
+              <a href=""><i class="fas fa-eye"></i></a>
+              <a href="http://192.168.1.25:8000/updatebooks/1"><i class="fas fa-edit"></i></a>
+              <a href=""><i class="fas fa-trash-alt"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</section>
+{% endblock %}
+{% block javascript %}
+<script>
+
+  $(function () {
+    $("#table2").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+      "paging": false,
+      "searching": true,
+      "ordering": true,
+    });
+  });
+
+</script>
+{% endblock %}

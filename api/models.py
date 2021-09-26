@@ -52,7 +52,7 @@ class Books(models.Model):
     releaseYear = models.CharField(max_length=250,null=True)
     page = models.CharField(max_length=250,null=True)
     cost = models.CharField(max_length=250,null=True)
-    description = models.CharField(max_length=250,null=True)
+    description = models.TextField(null=True)
     quentity = models.CharField(max_length=250,null=True)
     isbn = models.CharField(max_length=250,null=True)
     image = models.ImageField(null=True)

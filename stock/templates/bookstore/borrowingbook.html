@@ -1,0 +1,200 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+
+    <section class="content">
+      <div class=" col-md-12">
+        <div class="card card-info">
+          <div class="card-header">
+            <h3 class="card-title">Borrowing</h3>
+          </div>
+          <!-- /.card-header -->
+          <!-- form start -->
+          <form class="form" method="POST" >
+            {% csrf_token %}
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="bo_ver" class="col-form-label">Borrower</label>
+                    <select class="form-control" id="bo_ver">
+                      <option value="1">Rotana</option>
+                      <option value="2">Channean</option>
+                      <option value="3">Leang Heng</option>
+                      <option value="4">Sok Nath</option>
+                    </select>
+                  </div> 
+                  <div class="form-group">
+                    <label for="bdatein" class="col-form-label">Borrow Date</label>
+                    <input type="date" class="form-control" id="bdatein" value="">                 
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="bsearch" class="col-form-label">Book (ID / ISBN)</label>
+                    <select class="form-control" id="bsearch">
+                      <option value="1">BB001</option>
+                      <option value="2">BB002</option>
+                      <option value="3">DB001</option>
+                      <option value="4">DB002</option>
+                      <option value="5">NB12345#UME235</option>
+                      <option value="6">NB76543#UME235</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="bdatein" class="col-form-label">Return Date</label>
+                    <input type="date" class="form-control" id="bdatein" value="">                 
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card card-primary card-outline">
+                  <div class="card-body box-profile">
+                    <div class="text-center">
+                      <img class="profile-user-img img-fluid img-circle" src="http://192.168.1.25:8000/static/dist/img/ABC18178.jpg" alt="User profile picture">
+                    </div>
+                    <h3 class="profile-username text-center">Sat Rotana</h3>
+                    <p class="text-muted text-center">IT Support</p>
+
+                    <div class="row">
+                      <div class="col-md-4">
+                        <ul class="list-group list-group-unbordered mb-3">
+                          <li class="list-group-item">
+                            <b>Borrowed Books</b> <a class="float-right">50</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-md-4">
+                        <ul class="list-group list-group-unbordered mb-3">
+                          <li class="list-group-item">
+                            <b>Online Reading</b> <a class="float-right">543</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-md-4">
+                        <ul class="list-group list-group-unbordered mb-3">
+                          <li class="list-group-item">
+                            <b>Visited Library</b> <a class="float-right">150</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ul class="list-group list-group-unbordered mb-3">
+                          <li class="list-group-item">
+                            <b>Email</b> <a class="float-right">satrotana@gmail.com</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Phone</b> <a class="float-right">0967677909</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Position</b> <a class="float-right">Staff</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Organization</b> <a class="float-right">UME</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Group</b> <a class="float-right">Admin</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Address</b> <a class="float-right">អំពិលលើ, អំពិល, កំពង់សៀម, កំពង់ចាម</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Returned</b> <a class="float-right text-success">50</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Return Lated</b> <a class="float-right text-red">10</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Charged</b> <a class="float-right">2.5 $</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card card-primary card-outline">
+                  <div class="card-body box-profile">
+                    <div class="text-center">
+                      <img class="profile-user-img img-fluid" src="http://192.168.1.25:8000/static/dist/img/harry-potter.jpg" alt="User profile picture">
+                    </div>
+                    <h3 class="profile-username text-center">Harry Potter</h3>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <ul class="list-group list-group-unbordered mb-3">
+                          <li class="list-group-item">
+                            <b>Was Borrowed</b> <a class="float-right">50</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-md-6">
+                        <ul class="list-group list-group-unbordered mb-3">
+                          <li class="list-group-item">
+                            <b>Was Read</b> <a class="float-right">543</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ul class="list-group list-group-unbordered mb-3">
+                          <li class="list-group-item">
+                            <b>Book Type</b> <a class="float-right">Story</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Book ID</b> <a class="float-right">DB001</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Release Year</b> <a class="float-right">1998</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Page Number</b> <a class="float-right">120</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Quentity</b> <a class="float-right">10</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>ISBN</b> <a class="float-right">NB12345#UME235</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Cost</b> <a class="float-right">28 $</a>
+                          </li>
+                          <li class="list-group-item">
+                            <b>Description</b> <a class="float-right">Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling. The novels chronicle the lives of a young wizard</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>  
+                  </div>
+                </div>               
+              </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+              <button type="submit" class="btn btn-info">SUBMIT</button>
+              <!-- <button type="submit" class="btn btn-default float-right">Cancel</button> -->
+            </div>
+            <!-- /.card-footer -->
+          </form>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}
+{% block javascript %}  
+<script>
+  $(function () {
+    $('#bo_ver').select2()
+    $('#bsearch').select2()
+    
+    bsCustomFileInput.init()
+  })
+  
+</script>
+{% endblock %}

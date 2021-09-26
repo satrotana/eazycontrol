@@ -140,5 +140,22 @@ def permissionsetting(request):
     userInfo = MemberControl('S',str(request.user.id),'ALL')
     return render(request, "staffs/permissionsetting.html",{'data':resp,'userInfo':userInfo})
 
+@login_required(login_url='login')
+def bookstore(request):
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
+    return render(request, "bookstore/bookstore.html",{'userInfo':userInfo})
 
+@login_required(login_url='login')
+def updatebook(request,id):
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
+    return render(request, "bookstore/inputform.html",{'userInfo':userInfo})
 
+@login_required(login_url='login')
+def insertbook(request):
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
+    return render(request, "bookstore/inputform.html",{'userInfo':userInfo})
+
+@login_required(login_url='login')
+def borrowbook(request):
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
+    return render(request, "bookstore/borrowingbook.html",{'userInfo':userInfo})
