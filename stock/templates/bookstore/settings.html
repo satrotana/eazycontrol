@@ -30,13 +30,21 @@
     </div>
     <div class="card-body">
       <div class="row">
-        <div class="col-md-6">
-          <div class="bootstrap-switch-container" style="width: 126px; margin-left: 12px;">
-            <input type="checkbox" name="my-checkbox" checked="" data-bootstrap-switch="" data-off-color="danger" data-on-color="success">
+        <div class="col-md-12">
+          <label for="chargemoney" class="col-form-label">Charge Money</label>
+          <div class="bootstrap-switch-container" style="width: 126px;">
+            <input type="checkbox" id="chargemoney" name="my-checkbox" checked="" data-bootstrap-switch="" data-off-color="danger" data-on-color="success">
           </div>
         </div>
-        <div class="col-md-6">
-          
+        <div class="col-md-12">
+          <label for="increasebyday" class="col-form-label">Increase by day</label>
+          <div class="bootstrap-switch-container" style="width: 126px;">
+            <input type="checkbox" id="increasebyday" name="my-checkbox" checked="" data-bootstrap-switch="" data-off-color="danger" data-on-color="success">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label for="money" class="col-form-label">Lated/1day($)</label>
+          <input type="number" class="form-control" id="money" placeholder="0.0 $" value="0.5">
         </div>
       </div>
       
@@ -45,12 +53,58 @@
 
   <div class="card">
     <div class="card-header">
-      Charge on return late.
+      Exchange Rate
     </div>
     <div class="card-body">
-      
+      <div class="row">
+        <div class="col-md-2">
+          <label for="khex" class="col-form-label">Khmer(<strong>៛</strong>)</label>
+          <input type="number" class="form-control" id="khex" placeholder="0,000 ៛" value="4100">
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="card">
+    <div class="card-header">
+      The people who will allowed to borrow the book.
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="icheck-success d-inline">
+          <input type="checkbox" checked id="allostaff">
+          <label for="allostaff">
+            Staff
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="icheck-success d-inline">
+          <input type="checkbox" checked id="alloumestu">
+          <label for="alloumestu">
+            UME Student
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="icheck-success d-inline">
+          <input type="checkbox" checked id="allooutstu">
+          <label for="allooutstu">
+            Out-Side Student
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="icheck-success d-inline">
+          <input type="checkbox" checked id="allooutstu">
+          <label for="allooutstu">
+            Out-Side Student
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </div>
 
 </section>
