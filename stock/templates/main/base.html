@@ -181,19 +181,19 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{% url 'borrowbook' %}" class="nav-link">
+                <a href="{% url 'borrowedlist' %}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Borrowing</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{% url 'returnbook' %}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Return</p>
+                  <p>Returned</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{% url 'booksetting' %}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Settings</p>
                 </a>
@@ -357,6 +357,8 @@
 <script src="{% static 'dist/myjs.js' %}" ></script>
 <script src="{% static 'plugins/bs-custom-file-input/bs-custom-file-input.min.js' %}"></script>
 <script src="{% static 'plugins/inputmask/min/jquery.inputmask.bundle.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-switch/js/bootstrap-switch.min.js' %}"></script>
+
 {% block javascript %}
 {% endblock %}
 </body>

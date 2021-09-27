@@ -159,3 +159,18 @@ def insertbook(request):
 def borrowbook(request):
     userInfo = MemberControl('S',str(request.user.id),'ALL')
     return render(request, "bookstore/borrowingbook.html",{'userInfo':userInfo})
+
+@login_required(login_url='login')
+def borrowedlist(request):
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
+    return render(request, "bookstore/borrowedlist.html",{'userInfo':userInfo})
+
+@login_required(login_url='login')
+def returnbook(request):
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
+    return render(request, "bookstore/returnlist.html",{'userInfo':userInfo})
+
+@login_required(login_url='login')
+def booksetting(request):
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
+    return render(request, "bookstore/settings.html",{'userInfo':userInfo})

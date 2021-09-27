@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+<style>
+  .table-member{
+    box-shadow: 1px 2px 10px rgba(128, 128, 128, 0.3);
+    background-color: white;
+    padding: 15px;
+    margin-top:25px;
+  }
+  .table{
+    position: relative;
+    width: 100%;
+    font-size: 25px;
+  }
+  .Onerow{
+    grid-row: 1;
+    text-align: center;
+  }
+  .Onerow > a > i{
+    font-size: 20px;
+    padding-right: 10px;
+  }
+</style>
+<section class="content">
+
+  <div class="card">
+    <div class="card-header">
+      Charge on return late.
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="bootstrap-switch-container" style="width: 126px; margin-left: 12px;">
+            <input type="checkbox" name="my-checkbox" checked="" data-bootstrap-switch="" data-off-color="danger" data-on-color="success">
+          </div>
+        </div>
+        <div class="col-md-6">
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      Charge on return late.
+    </div>
+    <div class="card-body">
+      
+    </div>
+  </div>
+</div>
+
+</section>
+{% endblock %}
+{% block javascript %}
+<script>
+  $("input[data-bootstrap-switch]").each(function(){
+      $(this).bootstrapSwitch('state', $(this).prop('checked'));
+  });
+</script>
+{% endblock %}

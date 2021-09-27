@@ -20,5 +20,8 @@ urlpatterns = [
     path('updatebooks/<str:id>', updatebook),
     path('inputbooks', insertbook,name='inputbooks'),
     path('borrowbook', borrowbook,name='borrowbook'),
+    path('borrowedlist', borrowedlist,name='borrowedlist'),
+    path('returnbook', returnbook,name='returnbook'),
+    path('booksetting', booksetting,name='booksetting'),
 
 ]

@@ -1,0 +1,113 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+<style>
+  .table-member{
+    box-shadow: 1px 2px 10px rgba(128, 128, 128, 0.3);
+    background-color: white;
+    padding: 15px;
+    margin-top:25px;
+  }
+  .table{
+    position: relative;
+    width: 100%;
+    font-size: 25px;
+  }
+  .Onerow{
+    grid-row: 1;
+    text-align: center;
+  }
+  .Onerow > a > i{
+    font-size: 20px;
+    padding-right: 10px;
+  }
+</style>
+<section class="content">
+<div class="card-body">
+  <a href="{% url 'borrowbook' %}" class="btn btn-info">Add Borrow</a>
+</div>
+  <div class="card">
+    <div class="card-header bg-info">
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="table2" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>No</th>
+          <th>Book</th>
+          <th>Borrower</th>
+          <th>Borrow_Date</th>
+          <th>Return_Date</th>
+          <th>Count_Down(days)</th>
+          <th>Charge</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>Harry Potter</td>
+            <td>Sat Rotana</td>
+            <td>25-09-2021</td>
+            <td>26-09-2021</td>
+            <td><p class="text-success ">1d <small>Remaining</small></p></td>
+            <td>0 $</td>
+            <td class="Onerow">
+              <a href="" title="Return Book Here"><i class="fas fa-exchange-alt"></i></a>
+              <a href="" title="View Details"><i class="fas fa-eye"></i></a>
+              <a href="" title="Update Borrowed"><i class="fas fa-edit"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td>Harry Potter</td>
+            <td>Sat Rotana</td>
+            <td>24-09-2021</td>
+            <td>25-09-2021</td>
+            <td><p class="text-red ">1d <small>Lated</small></p></td>
+            <td>0.5 $</td>
+            <td class="Onerow">
+              <a href="" title="Return Book Here"><i class="fas fa-exchange-alt"></i></a>
+              <a href="" title="View Details"><i class="fas fa-eye"></i></a>
+              <a href="" title="Update Borrowed"><i class="fas fa-edit"></i></a>
+            </td>
+          </tr>
+          <!-- {% for i in data %}
+          <tr>
+            <td class="font20">{{ forloop.counter }}</td>
+            <td><img class="list-item-zoom" src="{{i.userImage}}" width="45px" /></td>
+            <td class="font20">{{ i.first_name }} {{ i.last_name }}</td>
+            <td class="font20">{{ i.email }}</td>
+            <td class="font20">{{ i.gender }}</td>
+            <td class="font20">{{ i.phone }}</td>
+            <td class="Onerow">
+              <a href="{{ i.detail_user }}"><i class="fas fa-eye"></i></a>
+              <a href="{% url 'memberinput' %}"><i class="fas fa-edit"></i></a>
+              <a href=""><i class="fas fa-trash-alt"></i></a>
+            </td>
+          </tr>
+          {% endfor %} -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</section>
+{% endblock %}
+{% block javascript %}
+<script>
+
+  $(function () {
+    $("#table2").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+      "paging": false,
+      "searching": true,
+      "ordering": true,
+    });
+  });
+
+</script>
+{% endblock %}
