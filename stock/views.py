@@ -26,7 +26,7 @@ def loginUser(request):
             message = 'Your username is empty!'
         elif Gusername is not None and Gpassword is not None:
             if findUser:
-                request.session.set_expiry(3600)
+                request.session.set_expiry(0)
                 user = authenticate(request, username = Gusername, password = Gpassword)
                 if user is not None:
                     login(request, user)
@@ -106,6 +106,7 @@ def register(request):
 def changepassword(request):
     return render(request,'auth/changepass.html')
 
+# Members ---------------------------------------------------------------------
 @login_required(login_url='login')
 def membership(request):
     resp = MemberControl('S','ALL','0')
@@ -123,6 +124,7 @@ def memberprofile(request,id):
     print(GetuserInfo)
     return render(request,'membership/profiles.html',{'userInfo':userInfo,'GetuserInfo':GetuserInfo})
 
+# Staffs ---------------------------------------------------------------------
 @login_required(login_url='login')
 def stafflist(request):
     resp = MemberControl('S','ALL','1')
@@ -144,6 +146,12 @@ def permissionsetting(request):
 def bookstore(request):
     userInfo = MemberControl('S',str(request.user.id),'ALL')
     return render(request, "bookstore/bookstore.html",{'userInfo':userInfo})
+
+# Books ---------------------------------------------------------------------
+@login_required(login_url='login')
+def bookdetail(request,id):
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
+    return render(request, "bookstore/bookdetail.html",{'userInfo':userInfo})
 
 @login_required(login_url='login')
 def updatebook(request,id):
@@ -174,3 +182,14 @@ def returnbook(request):
 def booksetting(request):
     userInfo = MemberControl('S',str(request.user.id),'ALL')
     return render(request, "bookstore/settings.html",{'userInfo':userInfo})
+
+# Ques ---------------------------------------------------------------------
+@login_required(login_url='login')
+def questionlist(request):
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
+    return render(request, "ques/questionlist.html",{'userInfo':userInfo})
+
+@login_required(login_url='login')
+def insertQuesAnser(request):
+    userInfo = MemberControl('S',str(request.user.id),'ALL')
+    return render(request, "ques/inputform.html",{'userInfo':userInfo})

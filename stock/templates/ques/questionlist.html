@@ -1,0 +1,217 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+<style>
+  .table-member{
+    box-shadow: 1px 2px 10px rgba(128, 128, 128, 0.3);
+    background-color: white;
+    padding: 15px;
+    margin-top:25px;
+  }
+  .table{
+    position: relative;
+    width: 100%;
+    font-size: 25px;
+  }
+  .Onerow{
+    grid-row: 1;
+    text-align: center;
+  }
+  .Onerow > a > i{
+    font-size: 20px;
+    padding-right: 10px;
+  }
+  .font20{
+    font-size: 20px;
+  }
+  .header-blure{
+    background-color: rgb(0, 149, 175);
+  }
+  .card-table{
+    overflow: hidden;
+  }
+  .card-body-table{
+    position: relative;
+    overflow-x: scroll;
+
+  }
+  .select-table-row{
+    overflow-x: scroll;
+    overflow-y: scroll;
+  }
+</style>
+<section class="content">
+    <div class=" col-md-12">
+      <div class="card card-info">
+        <div class="card-header">
+          <h3 class="card-title">Profile</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form class="form-horizontal">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md-6">
+                <input type="hidden" class="form-control" id="qtionid">
+                <div class="form-group">
+                  <label for="qtion" class="col-sm-3 col-form-label">Questions</label>
+                  <div class="col-sm-12">
+                    <textarea class="form-control" id="qtion" placeholder="Questions"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="form-group col-sm-2">
+                    <div class="col-sm-12">
+                      <label for="turefalse" class="col-form-label">True Or False</label>
+                      <select class="form-control" style="width: 100%;" id="turefalse">
+                        <option selected="selected" value="0">False</option>
+                        <option value="1">True</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-9">
+                    <label for="aninser" class="col-sm-3 col-form-label">Answers</label>
+                    <div class="col-sm-12">
+                      <textarea class="form-control" id="aninser" placeholder="Answers"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-1">
+                    <div class="col-sm-12">
+                      <button class="btn btn-info"><i class="fas fa-plus"></i></button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <input type="hidden" class="form-control" id="anserid1" value="1">
+                  <div class="form-group col-sm-10">
+                    <div class="col-sm-12">
+                      <textarea class="form-control" id="anser1" disabled>The four basic types of computers are as under: Supercomputer. Mainframe Computer. Minicomputer.</textarea>
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-1">
+                    <div class="col-sm-12">
+                      <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <input type="hidden" class="form-control" id="anserid2" value="2">
+                  <div class="form-group col-sm-10">
+                    <div class="col-sm-12">
+                      <textarea class="form-control" id="anser2" disabled>The tree basic types of computers are as under: Mainframe Computer. Minicomputer.</textarea>
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-1">
+                    <div class="col-sm-12">
+                      <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            <button type="submit" class="btn btn-info">Save</button>
+            <!-- <button type="submit" class="btn btn-default float-right">Cancel</button> -->
+          </div>
+          <!-- /.card-footer -->
+        </form>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="card card-table">
+        <div class="card-header header-blure">
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <div class="card-body-table">
+            <table id="table2" class="table table-bordered table-striped select-table-row">
+              <thead>
+              <tr>
+                <th>No</th>
+                <th hidden>Question ID</th>
+                <th>Questions</th>
+                <th>Created_By</th>
+                <th>Created</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01</td>
+                  <td hidden>1001</td>
+                  <td>How many types of Computer ?</td>
+                  <td>Admin</td>
+                  <td>2021-09-24</td>
+                  <td class="Onerow">
+                    <button id="btnUpdate" class="btn btn-sm btn-info"  data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-eye"></i></button>
+                    <a href="{% url 'insertQuesAnser' %}"><button id="btnUpdate" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button></a>
+                    <button id="btnDel" class="btn btn-sm btn-info"><i class="fas fa-trash-alt"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Question and Answers</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="list-group-item">
+              How many types of Computer ?
+            </div>
+            <div class="list-group-item">
+              <p class="text-success">1, The four basic types of computers are as under: Supercomputer. Mainframe Computer. Minicomputer.</p>
+              <p>2, The tree basic types of computers are as under: Mainframe Computer. Minicomputer.</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}
+{% block javascript %}
+<script>
+$(function () {
+  $("#table2").DataTable({
+    "responsive": false,
+    "autoWidth": false,
+    "paging": false,
+    "searching": true,
+    "ordering": true,
+  });
+});
+$(document).ready(function(){
+    // code to read selected table row cell data (values).
+    $(".select-table-row").on('click','#btnUpdate',function(){
+      var currentRow=$(this).closest("tr");
+      var col1=currentRow.find("td:eq(1)").text();
+      var col2=currentRow.find("td:eq(2)").text();
+      var col3=currentRow.find("td:eq(3)").text();
+      var col4=currentRow.find("td:eq(4)").text();
+      var setid = document.getElementById("proid").value = (col1);
+      var setproname = document.getElementById("proname").value = (col2);
+      var setshortname = document.getElementById("proshort").value = (col3);
+    });
+});
+
+
+</script>
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+<style>
+  .detail-card{
+    width: 100px;
+    height: 110px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 1px 2px 10px rgba(128, 128, 128, 0.3);
+    margin-right: 10PX;
+    margin-bottom: 10PX;
+    overflow: hidden;
+  }
+  .detail-card-header ,.detail-card-footer{
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .card-center {
+    margin: auto;
+  }
+</style>
+<section class="content">
+  <div class="row">
+    <div class="col-md-3">
+      <img src="http://192.168.1.25:8000/static/dist/img/jataka-tales.jpg" width="100%" />
+    </div>
+    <div class="col-md-9">
+      <div class="col-12">
+        <h1>Harry Portter</h1>
+        <i><strong class="text-secondary">Reaching : 500</strong>, <strong class="text-secondary">Borrowed : 500</strong></i>
+        <hr>
+
+        <div class="col-12">
+          <p style="font-size: 18px;text-align: justify; text-justify: inter-word;">
+            A dazzling new edition of J.K. Rowling's Harry Potter and the Sorcerer's Stone, fully illustrated in brilliant color and featuring exclusive interactive paper craft elements, including a foldout Hogwarts letter and more!
+In this stunning new edition of Harry Potter and the Sorcerer's Stone, experience the story as never before. J.K. Rowling's complete and unabridged text is accompanied by full-color illustrations on nearly every page and eight exclusive, interactive paper craft elements: Readers will open Harry's Hogwarts letter, reveal the magical entryway to Diagon Alley, make a sumptuous feast appear in the Great Hall, and more.Designed and illustrated by award-winning design studio MinaLima -- best known for establishing the visual graphic style of the Harry Potter and Fantastic Beasts films -- this edition is sure to be a keepsake for Harry Potter fans, a beautiful addition to any collector's bookshelf, and an enchanting way to introduce the first book in this beloved series to a new generation of readers.
+          </p>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="card-center">
+            <div class="detail-card">
+              <div class="col-12 detail-card-header">
+                Language
+              </div>
+              <div class="col-12 detail-card-body">
+                <i class="fas fa-globe-europe fa-3x"></i>
+              </div>
+              <div class="col-12 detail-card-footer">
+                English
+              </div>
+            </div>
+    
+            <div class="detail-card">
+              <div class="col-12 detail-card-header">
+                Print length
+              </div>
+              <div class="col-12 detail-card-body">
+                <i class="fas fa-file fa-3x"></i>
+              </div>
+              <div class="col-12 detail-card-footer">
+                368 pages
+              </div>
+            </div>
+  
+            <div class="detail-card">
+              <div class="col-12 detail-card-header">
+                Publication
+              </div>
+              <div class="col-12 detail-card-body">
+                <i class="fas fa-calendar-day fa-3x"></i>
+              </div>
+              <div class="col-12 detail-card-footer">
+                2021-09-01
+              </div>
+            </div>
+  
+            <div class="detail-card">
+              <div class="col-12 detail-card-header">
+                ISBN
+              </div>
+              <div class="col-12 detail-card-body">
+                <i class="fas fa-barcode fa-3x"></i>
+              </div>
+              <div class="col-12 detail-card-footer">
+                1338596705
+              </div>
+            </div>
+  
+            <div class="detail-card">
+              <div class="col-12 detail-card-header">
+                Category
+              </div>
+              <div class="col-12 detail-card-body">
+                <i class="fas fa-crown fa-3x"></i>
+              </div>
+              <div class="col-12 detail-card-footer">
+                Story
+              </div>
+            </div>
+
+            <div class="detail-card">
+              <div class="col-12 detail-card-header">
+                Cost
+              </div>
+              <div class="col-12 detail-card-body">
+                <i class="fas fa-file-invoice-dollar fa-3x"></i>
+              </div>
+              <div class="col-12 detail-card-footer">
+                28 $
+              </div>
+            </div>
+
+            <div class="detail-card">
+              <div class="col-12 detail-card-header">
+                Quentity
+              </div>
+              <div class="col-12 detail-card-body">
+                <i class="fas fa-box-open fa-3x"></i>
+              </div>
+              <div class="col-12 detail-card-footer">
+                10 Books
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block javascript %}
+<script>
+</script>
+{% endblock %}

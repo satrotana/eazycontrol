@@ -1,0 +1,89 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load static %}
+
+    <section class="content">
+      <div class=" col-md-12">
+              <div class="card card-info">
+        <div class="card-header">
+          <h3 class="card-title">Profile</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form class="form-horizontal">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md-12">
+                <input type="hidden" class="form-control" id="qtionid">
+                <div class="form-group">
+                  <label for="qtion" class="col-sm-3 col-form-label">Questions</label>
+                  <div class="col-sm-12">
+                    <textarea class="form-control" id="qtion" placeholder="Questions">How many types of Computer ?</textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="form-group col-sm-2">
+                    <div class="col-sm-12">
+                      <label for="turefalse" class="col-form-label">True Or False</label>
+                      <select class="form-control" style="width: 100%;" id="turefalse">
+                        <option selected="selected" value="0">False</option>
+                        <option value="1">True</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-10">
+                    <label for="aninser" class="col-sm-3 col-form-label">Answers</label>
+                    <div class="col-sm-12">
+                      <textarea class="form-control" id="aninser" placeholder="Answers">The tree basic types of computers are as under: Mainframe Computer. Minicomputer.</textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group col-sm-2">
+                    <div class="col-sm-12">
+                      <label for="turefalse" class="col-form-label">True Or False</label>
+                      <select class="form-control" style="width: 100%;" id="turefalse">
+                        <option selected="selected" value="0">False</option>
+                        <option value="1">True</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-10">
+                    <label for="aninser" class="col-sm-3 col-form-label">Answers</label>
+                    <div class="col-sm-12">
+                      <textarea class="form-control" id="aninser" placeholder="Answers">The tree basic types of computers are as under: Mainframe Computer. Minicomputer.</textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+            <button type="submit" class="btn btn-info">Save</button>
+            <!-- <button type="submit" class="btn btn-default float-right">Cancel</button> -->
+          </div>
+          <!-- /.card-footer -->
+        </form>
+      </div>
+      </div>
+    </section>
+
+{% endblock %}
+{% block javascript %}  
+<script>
+  $(function () {
+    $('#proName').select2()
+    $('#village').select2()
+    $('#district').select2()
+    $('#communce').select2()
+    $('#province').select2()
+    $('[data-mask]').inputmask()
+    bsCustomFileInput.init()
+  })
+</script>
+{% endblock %}
